@@ -59,14 +59,40 @@ public class CafeApp {
             unitPrice = 55.00;
             System.out.println("You selected Sandwich");
         }
+
         System.out.print("How many? ");
         int quantity = scanner.nextInt();
-        double subtotal = unitPrice * quantity;
+
+        double subtotal = calculateSubtotal(unitPrice, quantity);
 
         System.out.println("Subtotal: " + subtotal + " SEK");
 
         System.out.print("Are you a loyalty member? (yes/no): ");
         String loyaltyAnswer = scanner.next();
 
+        boolean isLoyaltyMember = loyaltyAnswer.equalsIgnoreCase("yes");
+
+        double discount = 0;
+
+        if (isLoyaltyMember) {
+            discount = subtotal * 0.15;
+        } else if (subtotal > 150) {
+            discount = subtotal * 0.10;
+        }
+
+        System.out.println("Discount: " + discount + " SEK");
+
+
+        double priceAfterDiscount = subtotal - discount;
+        double vat = priceAfterDiscount * 0.12;
+        double total = priceAfterDiscount + vat;
+
+        System.out.println("VAT: " + vat + " SEK");
+        System.out.println("Total: " + total + " SEK");
+
+    }
+
+    public static double calculateSubtotal(double unitPrice, int quantity) {
+        return unitPrice * quantity;
     }
 }
