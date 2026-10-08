@@ -27,5 +27,46 @@ public class CafeApp {
         System.out.print("Enter item number (1-5): ");
         int itemNumber = scanner.nextInt();
 
+        String itemName = "";
+        double unitPrice = 0;
+
+        if (itemNumber == 1) {
+            itemName = "Espresso";
+            unitPrice = 25.00;
+            System.out.println("You selected Espresso");
+        }
+
+        if (itemNumber == 2) {
+            itemName = "Cappuccino";
+            unitPrice = 35.00;
+            System.out.println("You selected Cappuccino");
+        }
+
+        if (itemNumber == 3) {
+            itemName = "Latte";
+            unitPrice = 40.00;
+            System.out.println("You selected Latte");
+        }
+
+        if (itemNumber == 4) {
+            itemName = "Croissant";
+            unitPrice = 30.00;
+            System.out.println("You selected Croissant");
+        }
+
+        if (itemNumber == 5) {
+            itemName = "Sandwich";
+            unitPrice = 55.00;
+            System.out.println("You selected Sandwich");
+        }
+        System.out.print("How many? ");
+        int quantity = scanner.nextInt();
+        double subtotal = unitPrice * quantity;
+
+        System.out.println("Subtotal: " + subtotal + " SEK");
+
+        System.out.print("Are you a loyalty member? (yes/no): ");
+        String loyaltyAnswer = scanner.next();
+
     }
 }
