@@ -1,7 +1,8 @@
 package se.lexicon;
 import java.util.Scanner;
 public class ConverterApp {
-
+    private static final double SEK_TO_USD = 10.87;
+    private static final double SEK_TO_EUR = 11.32;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean running = true;
@@ -21,8 +22,7 @@ public class ConverterApp {
                     temperatureConverter(scanner);
                     break;
                 case 2:
-                    System.out.println("Currency Converter selected.");
-                    break;
+                    currencyConverter(scanner);
                 case 3:
                     System.out.println("BMI Calculator selected.");
                     break;
@@ -56,6 +56,29 @@ public class ConverterApp {
             double celsius = (fahrenheit - 32) * 5.0 / 9.0;
             System.out.printf("Result: %.2f F = %.2f C%n",
                     fahrenheit, celsius);
+        }
+    }
+    public static void currencyConverter(Scanner scanner) {
+        System.out.println("--- Currency Converter ---");
+        System.out.println("Convert SEK to:");
+        System.out.println("1. US Dollars (USD)");
+        System.out.println("2. Euros (EUR)");
+        System.out.print("Your choice: ");
+        int choice = scanner.nextInt();
+        if (choice == 1) {
+            System.out.print("Enter amount in SEK: ");
+            double sek = scanner.nextDouble();
+            double usd = sek / SEK_TO_USD;
+            System.out.printf("%.2f SEK = %.2f USD%n", sek, usd);
+        }
+        else if (choice == 2) {
+            System.out.print("Enter amount in SEK: ");
+            double sek = scanner.nextDouble();
+            double eur = sek / SEK_TO_EUR;
+            System.out.printf("%.2f SEK = %.2f EUR%n", sek, eur);
+        }
+        else {
+            System.out.println("Invalid choice. Please choose 1 or 2.");
         }
     }
 }
