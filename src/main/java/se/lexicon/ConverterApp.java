@@ -23,8 +23,9 @@ public class ConverterApp {
                     break;
                 case 2:
                     currencyConverter(scanner);
+                    break;
                 case 3:
-                    System.out.println("BMI Calculator selected.");
+                    bmiCalculator(scanner);
                     break;
                 case 4:
                     running = false;
@@ -79,6 +80,28 @@ public class ConverterApp {
         }
         else {
             System.out.println("Invalid choice. Please choose 1 or 2.");
+        }
+    }
+    public static void bmiCalculator(Scanner scanner) {
+        System.out.println("--- BMI Calculator ---");
+        System.out.print("Enter your weight in kg: ");
+        double weight = scanner.nextDouble();
+        System.out.print("Enter your height in metres: ");
+        double height = scanner.nextDouble();
+        if (weight <= 0 || height <= 0) {
+            System.out.println("Weight and height must be greater than zero.");
+            return;
+        }
+        double bmi = weight / Math.pow(height, 2);
+        System.out.printf("Your BMI is: %.2f%n", bmi);
+        if (bmi < 18.5) {
+            System.out.println("Category: Underweight");
+        } else if (bmi < 25) {
+            System.out.println("Category: Normal weight");
+        } else if (bmi < 30) {
+            System.out.println("Category: Overweight");
+        } else {
+            System.out.println("Category: Obese");
         }
     }
 }
