@@ -5,6 +5,7 @@ public class ConverterApp {
     private static final double SEK_TO_EUR = 11.32;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        scanner.useLocale(java.util.Locale.US);
         boolean running = true;
         while (running) {
             System.out.println("==================================");
@@ -49,14 +50,14 @@ public class ConverterApp {
             System.out.print("Enter temperature in Celsius: ");
             double celsius = scanner.nextDouble();
             double fahrenheit = celsius * 9.0 / 5.0 + 32;
-            System.out.printf("Result: %.2f C = %.2f F%n",
-                    celsius, fahrenheit);
+            System.out.printf(java.util.Locale.US,
+                    "Result: %.2f C = %.2f F%n", celsius, fahrenheit);
         } else if (choice == 2) {
             System.out.print("Enter temperature in Fahrenheit: ");
             double fahrenheit = scanner.nextDouble();
             double celsius = (fahrenheit - 32) * 5.0 / 9.0;
-            System.out.printf("Result: %.2f F = %.2f C%n",
-                    fahrenheit, celsius);
+            System.out.printf(java.util.Locale.US,
+                    "Result: %.2f F = %.2f C%n", fahrenheit, celsius);
         }
     }
     public static void currencyConverter(Scanner scanner) {
@@ -70,13 +71,13 @@ public class ConverterApp {
             System.out.print("Enter amount in SEK: ");
             double sek = scanner.nextDouble();
             double usd = sek / SEK_TO_USD;
-            System.out.printf("%.2f SEK = %.2f USD%n", sek, usd);
+            System.out.printf(java.util.Locale.US, "%.2f SEK = %.2f USD%n", sek, usd);
         }
         else if (choice == 2) {
             System.out.print("Enter amount in SEK: ");
             double sek = scanner.nextDouble();
             double eur = sek / SEK_TO_EUR;
-            System.out.printf("%.2f SEK = %.2f EUR%n", sek, eur);
+            System.out.printf(java.util.Locale.US, "%.2f SEK = %.2f EUR%n", sek, eur);
         }
         else {
             System.out.println("Invalid choice. Please choose 1 or 2.");
